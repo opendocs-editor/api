@@ -6,4 +6,5 @@ env.json
 min
 out
 push.sh
-.yarn
+.yarn/cache
+.yarn/unplugged
