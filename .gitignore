@@ -8,3 +8,5 @@ out
 push.sh
 .yarn/cache
 .yarn/unplugged
+src/config.ts
+images
