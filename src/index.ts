@@ -32,19 +32,6 @@ const dict = fs.readFileSync(
 );
 const nodehun = new Nodehun(affix, dict);
 
-const version = {
-    backend: "0.3.2.0-alpha-2021-12-14",
-    frontend: "0.2.1.0-alpha-2021-12-14",
-    api: "0.1.0.0-alpha-2021-12-14",
-    database: "5.0.5",
-    node: "16.13.1",
-    npm: "8.1.2",
-    yarn: "1.22.17",
-    httpd: "apache-2.4.41",
-    ts_node: "10.4.0",
-    typescript: "4.5.2",
-};
-
 export interface UserObject {
     name?: string;
     username?: string;
@@ -67,7 +54,9 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 
 const dbclient = new MongoClient(
-    `mongodb://${process.env.MONGODB_HOST || "localhost"}:${process.env.MONGODB_PORT || 27017}/opendocs_api_testing`
+    `mongodb://${process.env.MONGODB_HOST || "localhost"}:${
+        process.env.MONGODB_PORT || 27017
+    }/opendocs_api_testing`
 );
 
 const main = async () => {
@@ -157,7 +146,7 @@ const main = async () => {
                 client_secret: req.body.client_secret,
                 redirect_uris: [req.body.redirect_uri],
             };
-            const d = await authorizePromise(credentials, "tokens.json");
+            const d = await authorizePromise(credentials);
             res.send({ url: d });
         });
 

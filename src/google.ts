@@ -1,6 +1,5 @@
 import { google } from "googleapis";
 import fs from "fs";
-import readline from "readline";
 import { OAuth2Client } from "google-auth-library";
 
 export const SCOPES = ["https://www.googleapis.com/auth/documents"];
@@ -11,7 +10,7 @@ export interface OAuth2Credentials {
     redirect_uris: string[];
 }
 
-let credentials_: OAuth2Credentials = {
+const credentials_: OAuth2Credentials = {
     client_secret: "",
     client_id: "",
     redirect_uris: [],
@@ -34,8 +33,7 @@ export function getCredentials() {
 }
 
 export function authorizePromise(
-    credentials: OAuth2Credentials,
-    TOKEN_PATH: fs.PathLike
+    credentials: OAuth2Credentials
 ): Promise<string> {
     return new Promise((resolve) => {
         const { client_secret, client_id, redirect_uris } = credentials;

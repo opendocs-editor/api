@@ -71,7 +71,7 @@
     },
     "scripts": {
         "start": "ts-node src/index.ts",
-        "build": "yarn format && yarn fix && yarn clean && tsc -p . && node scripts/minify.js",
+        "build": "yarn format && yarn fix && yarn clean && tsc -p .",
         "dev": "nodemon src/index.ts",
         "format": "prettier --write .",
         "fcheck": "prettier --check .",
