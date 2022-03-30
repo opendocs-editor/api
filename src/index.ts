@@ -74,7 +74,9 @@ const main = async () => {
                 port: parseInt(process.env.MONGODB_PORT || "27017"),
             },
             {
-                jwtSecret: process.env.JWT_SECRET || "dcwhepoiajirnd23dalk32jkui902iij",
+                jwtSecret:
+                    process.env.JWT_SECRET ||
+                    "dcwhepoiajirnd23dalk32jkui902iij",
             }
         );
 
