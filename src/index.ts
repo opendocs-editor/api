@@ -67,7 +67,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 
 const dbclient = new MongoClient(
-    "mongodb://localhost:27017/opendocs_api_testing"
+    `mongodb://${process.env.MONGODB_HOST || "localhost"}:${process.env.MONGODB_PORT || 27017}/opendocs_api_testing`
 );
 
 const main = async () => {
@@ -269,5 +269,5 @@ const main = async () => {
 main();
 
 servlet.listen(port, () => {
-    console.log(`⚡️ [api] App listening on port ${port}.`);
+    console.log(`⚡️ [api] API listening on port ${port}.`);
 });
