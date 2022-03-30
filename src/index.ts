@@ -69,7 +69,13 @@ const main = async () => {
         await useAuth(
             app,
             "opendocs_proxy_test",
-            "dcwhepoiajirnd23dalk32jkui902iij"
+            {
+                host: process.env.MONGODB_HOST || "localhost",
+                port: parseInt(process.env.MONGODB_PORT || "27017"),
+            },
+            {
+                jwtSecret: process.env.JWT_SECRET || "dcwhepoiajirnd23dalk32jkui902iij",
+            }
         );
 
         // Save
